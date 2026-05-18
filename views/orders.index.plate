@@ -1,0 +1,18 @@
+{{ == head("Bestellungs-Übersicht") }}
+
+<div class="cards">
+    {{ each: $orders as $order }}
+        <div class="card">
+            <p><b>{{ $order->title }}</b></p>
+            <p><em>OrderStatus:</em> {{ $order->status()->label() }}</p>
+
+            {{ if: $order->isOpen() }}
+                <a href="{{ route('orders.set-status', id: $order->id) }}?__method=post&status={{ \App\Enums\OrderStatus::CLOSED->value }}" class="btn success mt-2">Geöffnet</a>
+            {{ else: }}
+                <a href="{{ route('orders.set-status', id: $order->id) }}?__method=post&status={{ \App\Enums\OrderStatus::OPEN->value }}" class="btn warn mt-2">Geschlossen</a>
+            {{ if; }}
+
+            <a href="{{ route('orders.items', id: $order->id) }}" class="btn mt-2 secondary">Liste</a>
+        </div>
+    {{ each; }}
+</div>

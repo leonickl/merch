@@ -1,0 +1,12 @@
+{{ == head("Benutzer-Übersicht") }}
+
+<div class="cards">
+    {{ each: $users as $user }}
+        <div class="card">
+            <p><b>{{ $user->name }}</b></p>
+            <p><em>E-Mail-Adresse:</em> {{ $user->username }}
+                ({{ $user->verified ? 'verifiziert' : 'nicht verifiziert' }})</p>
+            <p><em>Rolle:</em> {{ $user->role->label() }}</p>
+        </div>
+    {{ each; }}
+</div>

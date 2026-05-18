@@ -1,0 +1,11 @@
+{{ == head("Bestellung '$order->title'") }}
+
+<div class="cards">
+    {{ each: $items as $item }}
+        <div class="card">
+            <p><b>{{ $item->user()->fullName() }}</b></p>
+            <p><em>Merch:</em> {{ $item->merch()->title }} {{ $item->size() ? '('.$item->size()->label().')' : '' }}</p>
+            <p><em>Bestellt:</em> {{ $item->createdAt() }}</p>
+        </div>
+    {{ each; }}
+</div>

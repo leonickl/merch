@@ -1,0 +1,42 @@
+/**
+ * Desktop Devices
+ */
+@media (min-width: 769px) {
+    .mobile-only {
+        display: none !important;
+    }
+
+    body {
+        padding: 2rem;
+    }
+
+    main {
+        padding: 2rem;
+        max-width: 70vw;
+    }
+
+    .nav {
+        justify-content: end;
+    }
+}
+
+/**
+ * Mobile Devices
+ */
+@media (max-width: 768px) {
+    .desktop-only {
+        display: none !important;
+    }
+
+    body {
+        padding: 1rem;
+    }
+
+    main {
+        padding: 1.5rem;
+    }
+
+    .nav {
+        justify-content: start;
+    }
+}

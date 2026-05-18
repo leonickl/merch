@@ -1,0 +1,11 @@
+{{ == head("Anmelden bei ".config('title')) }}
+
+<form action="/login" method="post">
+    <label for="email" class="required">E-Mail-Adresse</label>
+    <input type="text" id="email" name="email" required>
+
+    <label for="password" class="required">Passwort</label>
+    <input type="password" id="password" name="password" required>
+
+    <button type="submit" class="btn mt-2">Login</button>
+</form>

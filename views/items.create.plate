@@ -1,0 +1,53 @@
+{{ == head("Merch bestellen") }}
+
+<form action="{{ route('items.store', id: $order_id) }}" method="post">
+    <label for="merch" class="required">Merch</label>
+
+    <select id="merch" name="merch">
+        <option value="">---</option>
+
+        {{ each: $merchs as $merch }}
+            <option value="{{ $merch->id }}">
+                {{ $merch->title }}
+            </option>
+        {{ each; }}
+    </select>
+
+    <label for="size" class="required">Größe</label>
+
+    <select id="size" name="size">
+        <option value="">---</option>
+
+        {{ each: $sizes as $size }}
+            <option value="{{ $size->value }}">
+                {{ $size->label() }}
+            </option>
+        {{ each; }}
+    </select>
+
+    <button type="submit" class="btn mt-2">Bestellen</button>
+</form>
+
+<script>
+
+    const merchSelect = document.querySelector('#merch');
+    const sizeOptions = document.querySelectorAll('#size > option');
+
+    const availableSizes = {{ == json_encode($available_sizes) }};
+
+    merchSelect.addEventListener('change', e => {
+        const merch = e.target.value;
+        const available = availableSizes[merch];
+
+        console.log({ merch, available });
+
+        sizeOptions.forEach((elem, i) => {
+            elem.disabled = i === 0
+                ? available > 0
+                : (elem.value & available) === 0;
+
+            console.log(elem.textContent, elem.value & available)
+        });
+    });
+
+</script>

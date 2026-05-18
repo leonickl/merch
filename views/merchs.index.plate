@@ -1,0 +1,16 @@
+{{ == head("Merch-Übersicht") }}
+
+<div class="cards">
+    {{ each: $merchs as $merch }}
+        <div class="card">
+            <p><b>{{ $merch->title }}</b></p>
+            <p><em>Größen:</em> {{ $merch->sizesString() ?: '---' }}</p>
+
+            {{ if: $merch->isOrderable() }}
+                <a href="{{ route('merchs.set-status', id: $merch->id) }}?__method=post&status={{ \App\Enums\MerchStatus::UNAVAILABLE->value }}" class="btn success mt-2">Bestellbar</a>
+            {{ else: }}
+                <a href="{{ route('merchs.set-status', id: $merch->id) }}?__method=post&status={{ \App\Enums\MerchStatus::ORDERABLE->value }}" class="btn warn mt-2">Deaktiviert</a>
+            {{ if; }}
+        </div>
+    {{ each; }}
+</div>
