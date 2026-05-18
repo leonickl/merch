@@ -12,4 +12,18 @@ enum Role: int
     {
         return self::tryFrom($role) ?? self::REGULAR;
     }
+
+    public static function values(): array
+    {
+        return array_map(fn (self $status) => $status->value, self::cases());
+    }
+
+    public function label(): string
+    {
+        return match ($this) {
+            self::REGULAR => 'Benutzer:in',
+            self::ORGA => 'Organisator:in',
+            self::ADMIN => 'Admin',
+        };
+    }
 }

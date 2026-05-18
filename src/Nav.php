@@ -20,7 +20,7 @@ class Nav
 
             o(at: ['*'], to: route('merchs.index'), how: 'Merch', guard: fn () => $user->role >= Role::ORGA->value),
             o(at: ['*'], to: route('orders.index'), how: 'Bestellungen', guard: fn () => $user->role >= Role::ORGA->value),
-            // o(at: ['*'], to: route('users.index'), how: 'Benutzer', guard: fn () => $user->role >= Role::ADMIN->value),
+            o(at: ['*'], to: route('users.index'), how: 'Benutzer', guard: fn () => $user->role >= Role::ADMIN->value),
 
             o(at: ['/merchs'], to: route('merchs.create'), how: 'Neu', guard: fn () => $user->role >= Role::ORGA->value),
             o(at: ['/orders'], to: route('orders.create'), how: 'Neu', guard: fn () => $user->role >= Role::ORGA->value),

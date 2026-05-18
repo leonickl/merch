@@ -6,7 +6,14 @@
             <p><b>{{ $user->name }}</b></p>
             <p><em>E-Mail-Adresse:</em> {{ $user->username }}
                 ({{ $user->verified ? 'verifiziert' : 'nicht verifiziert' }})</p>
-            <p><em>Rolle:</em> {{ $user->role->label() }}</p>
+
+            {{ if: $user->role === \App\Enums\Role::REGULAR->value }}
+                <a href="{{ route('users.set-role', id: $user->id) }}?__method=post&role={{ \App\Enums\Role::ORGA->value }}" class="btn secondary mt-2">Benutzer:in</a>
+            {{ elif: $user->role === \App\Enums\Role::ORGA->value }}
+                <a href="{{ route('users.set-role', id: $user->id) }}?__method=post&role={{ \App\Enums\Role::ADMIN->value }}" class="btn mt-2">Organisator:in</a>
+            {{ elif: $user->role === \App\Enums\Role::ADMIN->value }}
+                <a href="{{ route('users.set-role', id: $user->id) }}?__method=post&role={{ \App\Enums\Role::REGULAR->value }}" class="btn warn mt-2">Admin</a>
+            {{ if; }}
         </div>
     {{ each; }}
 </div>

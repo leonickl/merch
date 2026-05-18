@@ -39,6 +39,7 @@ Route::group(
     Route::get('/users')->do(UserController::class, 'index')->name('users.index'),
     Route::get('/users/create')->do(UserController::class, 'create')->name('users.create'),
     Route::post('/users')->do(UserController::class, 'store')->name('users.store'),
+    Route::post('/users/{id}/role')->do(UserController::class, 'setRole')->name('users.set-role'),
 )
     ->middleware(InteractiveAuth::class)
     ->middleware(RequireAdmin::class);
