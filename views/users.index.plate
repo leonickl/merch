@@ -3,9 +3,8 @@
 <div class="cards">
     {{ each: $users as $user }}
         <div class="card">
-            <p><b>{{ $user->name }}</b></p>
-            <p><em>E-Mail-Adresse:</em> {{ $user->username }}
-                ({{ $user->verified ? 'verifiziert' : 'nicht verifiziert' }})</p>
+            <p><b>{{ $user->fullName() }}</b></p>
+            <p>{{ $user->username }} {{ if: $user->verified }} {{ == view('icons.verified') }} {{ if; }}</p>
 
             {{ if: $user->role === \App\Enums\Role::REGULAR->value }}
                 <a href="{{ route('users.set-role', id: $user->id) }}?__method=post&role={{ \App\Enums\Role::ORGA->value }}" class="btn secondary mt-2">Benutzer:in</a>
