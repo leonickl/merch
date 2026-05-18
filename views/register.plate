@@ -8,8 +8,11 @@
     <label for="email" class="required">E-Mail-Adresse</label>
     <input type="email" id="email" name="email" required minlength="6" maxlength="50">
 
-    <label for="name" class="required">Name</label>
-    <input type="text" id="name" name="name" required minlength="3" maxlength="40">
+    <label for="first_name" class="required">Vorname</label>
+    <input type="text" id="first_name" name="first_name" required minlength="3" maxlength="40">
+
+    <label for="last_name" class="required">Nachname</label>
+    <input type="text" id="last_name" name="last_name" required minlength="3" maxlength="40">
 
     <label for="password" class="required">Passwort</label>
     <input type="password" id="password" name="password" required minlength="8" maxlength="100">
