@@ -43,7 +43,7 @@ class User extends Model
             body: "Klicke bitte auf den folgenden Link, um deine E-Mail-Adresse zu verifizieren: <a href=\"$link\">$link</a>. Er ist 15 Minuten gültig.",
             html: true,
         )
-            ->send($this->username, $this->name);
+            ->send($this->username, $this->fullName());
     }
 
     public function fullName(): string
