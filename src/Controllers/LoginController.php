@@ -6,6 +6,7 @@ use PXP\Http\Controllers\Controller;
 use PXP\Http\Response\Redirect;
 use PXP\Http\Response\Response;
 use PXP\Lib\Auth;
+use App\Notification;
 
 class LoginController extends Controller
 {
@@ -22,6 +23,8 @@ class LoginController extends Controller
         ]);
 
         if (! Auth::login($request->email, $request->password)) {
+            Notification::warn('Ungültige Zugangsdaten gegeben.');
+
             return Redirect::route('login');
         }
 
