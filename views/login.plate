@@ -2,7 +2,7 @@
 
 <form action="/login" method="post">
     <label for="email" class="required">E-Mail-Adresse</label>
-    <input type="text" id="email" name="email" required>
+    <input type="email" id="email" name="email" required>
 
     <label for="password" class="required">Passwort</label>
     <input type="password" id="password" name="password" required>
