@@ -12,6 +12,10 @@ class LoginController extends Controller
 {
     public function form(): Response
     {
+        if (auth()) {
+            return Redirect::route('main');
+        }
+
         return view('login');
     }
 
