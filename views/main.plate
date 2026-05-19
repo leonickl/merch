@@ -2,10 +2,12 @@
 
 {{ if: count($orders) === 0 }}
     <p>Es sieht so aus, als könnte man derzeit nichts bestellen.</p>
-{{ if; }}
+{{ else: }}
+    <p>Folgende Bestellungen sind gerade geöffnet:</p>
 
-{{ each: $orders as $order }}
-    <a class="btn" href="{{ route('items.create', id: $order->id) }}">
-        {{ $order->title }}
-    </a>
-{{ each; }}
+    {{ each: $orders as $order }}
+        <a class="btn mt" href="{{ route('items.create', id: $order->id) }}">
+            {{ $order->title }}
+        </a>
+    {{ each; }}
+{{ if; }}
