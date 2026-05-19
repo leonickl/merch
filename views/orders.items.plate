@@ -1,5 +1,28 @@
 {{ == head("Bestellung '$order->title'") }}
 
+<div class="column items-center">
+    <div class="card mb-2 w-max-content">
+        <p><b>Zusammenfassung:</b></p>
+
+        <div class="mx mt row subcolumns wrap">
+            {{ each: $order->aggregate() as $group }}
+                <p class="mb-05">
+                    <b>{{ $group->merch->title }}:</b>
+
+                    {{ if: count($group->sizes) === 1 && array_keys($group->sizes)[0] === '---' }}
+                        {{ $group->sizes['---'] }}&times;<br/>
+                    {{ else: }}
+                        <br/>
+                        {{ each: $group->sizes as $size => $count }}
+                            <span class="pl">{{ $size }}: {{ $count }}&times;</span><br/>
+                        {{ each; }}
+                    {{ if; }}
+                </p>
+            {{ each; }}
+        </div>
+    </div>
+</div>
+
 <div class="cards">
     {{ each: $items as $item }}
         <div class="card">

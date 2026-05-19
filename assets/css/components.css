@@ -35,3 +35,8 @@
     gap: 1rem;
     flex-wrap: wrap;
 }
+
+.subcolumns > *:not(:last-child) {
+    border-right: 1px solid var(--card-border);
+    padding-right: 1rem;
+}
