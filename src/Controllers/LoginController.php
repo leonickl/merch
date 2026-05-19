@@ -2,11 +2,11 @@
 
 namespace App\Controllers;
 
+use App\Notification;
 use PXP\Http\Controllers\Controller;
 use PXP\Http\Response\Redirect;
 use PXP\Http\Response\Response;
 use PXP\Lib\Auth;
-use App\Notification;
 
 class LoginController extends Controller
 {

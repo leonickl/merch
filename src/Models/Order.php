@@ -38,7 +38,7 @@ class Order extends Model
 
         foreach ($this->items() as $item) {
             if (! array_key_exists($item->merch_id, $groups)) {
-                $groups[$item->merch_id] = (object)[
+                $groups[$item->merch_id] = (object) [
                     'merch' => $item->merch(),
                     'sizes' => [],
                 ];

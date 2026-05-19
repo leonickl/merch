@@ -2,13 +2,13 @@
 
 namespace App\Controllers;
 
+use App\Enums\Role;
 use App\Models\User;
+use App\Notification;
 use PXP\Http\Controllers\Controller;
 use PXP\Http\Response\Redirect;
 use PXP\Http\Response\Response;
-use App\Enums\Role;
 use PXP\Lib\Auth;
-use App\Notification;
 
 class UserController extends Controller
 {
@@ -41,6 +41,7 @@ class UserController extends Controller
 
         if ($id === Auth::user()?->id) {
             Notification::warn('Du kannst dich nicht selbst umstufen.');
+
             return Redirect::route('users.index');
         }
 
