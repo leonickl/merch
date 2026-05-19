@@ -7,12 +7,18 @@
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
 }
 
+@media (max-width: 768px) {
+    .card {
+        width: 100%;
+    }
+}
+
 .checkbox-button {
     height: 40px;
     width: 40px;
     border: none;
     cursor: pointer;
-    border-radius: 6px;        
+    border-radius: 6px;
 }
 
 .checkbox-readonly {
@@ -20,7 +26,7 @@
     width: 40px;
     border: none;
     cursor: auto;
-    border-radius: 6px;  
+    border-radius: 6px;
 }
 
 .cards {
