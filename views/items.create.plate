@@ -1,4 +1,4 @@
-{{ == head("Merch bestellen") }}
+{{ plug: 'head', title: "Merch bestellen" }}
 
 <form action="{{ route('items.store', id: $order_id) }}" method="post">
     <label for="merch" class="required">Merch</label>
@@ -33,7 +33,7 @@
     const merchSelect = document.querySelector('#merch');
     const sizeOptions = document.querySelectorAll('#size > option');
 
-    const availableSizes = {{ == json_encode($available_sizes) }};
+    const availableSizes = {{ % json_encode($available_sizes) }};
 
     merchSelect.addEventListener('change', e => {
         const merch = e.target.value;

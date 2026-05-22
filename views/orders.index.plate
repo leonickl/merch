@@ -1,4 +1,4 @@
-{{ == head("Bestellungs-Übersicht") }}
+{{ plug: 'head', title: "Bestellungs-Übersicht" }}
 
 <div class="cards">
     {{ each: $orders as $order }}

@@ -1,4 +1,4 @@
-{{ == head("Merch-Bestellungen") }}
+{{ plug: 'head', title: "Merch-Bestellungen" }}
 
 {{ if: count($orders) === 0 }}
     <p>Es sieht so aus, als könnte man derzeit nichts bestellen.</p>

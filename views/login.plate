@@ -1,4 +1,4 @@
-{{ == head("Anmelden bei ".config('title')) }}
+{{ plug: 'head', title: "Anmelden bei ".config('title') }}
 
 <form action="/login" method="post">
     <label for="email" class="required">E-Mail-Adresse</label>

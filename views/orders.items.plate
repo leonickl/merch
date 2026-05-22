@@ -1,4 +1,4 @@
-{{ == head("Bestellung '$order->title'") }}
+{{ plug: 'head', title: "Bestellung '$order->title'" }}
 
 <div class="column items-center">
     <div class="card mb-2 w-max-content">

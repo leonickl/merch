@@ -1,4 +1,4 @@
-{{ == head("Neue Bestellung eröffnen") }}
+{{ plug: 'head', title: "Neue Bestellung eröffnen" }}
 
 <form action="{{ route('orders.store') }}" method="post">
     <label for="title" class="required">Titel</label>

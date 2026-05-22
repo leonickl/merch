@@ -1,4 +1,4 @@
-{{ == head("Merch-Übersicht") }}
+{{ plug: 'head', title: "Merch-Übersicht" }}
 
 <div class="cards">
     {{ each: $merchs as $merch }}

@@ -1,4 +1,4 @@
-{{ == head("Neuen Merch erstellen") }}
+{{ plug: 'head', title: "Neuen Merch erstellen" }}
 
 <form action="{{ route('merchs.store') }}" method="post">
     <label for="title" class="required">Titel</label>
