@@ -1,0 +1,6 @@
+<div class="row wrap between">
+    <h1>{{ $title }}</h1>
+    <div>
+        <div class="row wrap mb">{{ % new \App\Nav }}</div>
+    </div>
+</div>
