@@ -77,16 +77,16 @@
         },
         {
             "name": "leonickl/plate",
-            "version": "v1.0.3-BETA",
+            "version": "v2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/leonickl/plate.git",
-                "reference": "496919dc2d39d29ff68a954a1716acb7ac779e0f"
+                "reference": "9b9b509750cbca47f5b8997d35f5a2427448e2f4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/leonickl/plate/zipball/496919dc2d39d29ff68a954a1716acb7ac779e0f",
-                "reference": "496919dc2d39d29ff68a954a1716acb7ac779e0f",
+                "url": "https://api.github.com/repos/leonickl/plate/zipball/9b9b509750cbca47f5b8997d35f5a2427448e2f4",
+                "reference": "9b9b509750cbca47f5b8997d35f5a2427448e2f4",
                 "shasum": ""
             },
             "require": {
@@ -108,28 +108,28 @@
             "description": "A PHP templating engine",
             "support": {
                 "issues": "https://github.com/leonickl/plate/issues",
-                "source": "https://github.com/leonickl/plate/tree/v1.0.3-BETA"
+                "source": "https://github.com/leonickl/plate/tree/v2.0.0"
             },
-            "time": "2026-05-02T11:20:21+00:00"
+            "time": "2026-05-22T14:18:28+00:00"
         },
         {
             "name": "leonickl/pxp-core",
-            "version": "v4.0.0",
+            "version": "v4.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/leonickl/pxp-core.git",
-                "reference": "4f9a6568ea4dde91285be67dceb3d5b254b9bed6"
+                "reference": "d20294623f53faf2e4019ad60ff5897101ceb484"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/leonickl/pxp-core/zipball/4f9a6568ea4dde91285be67dceb3d5b254b9bed6",
-                "reference": "4f9a6568ea4dde91285be67dceb3d5b254b9bed6",
+                "url": "https://api.github.com/repos/leonickl/pxp-core/zipball/d20294623f53faf2e4019ad60ff5897101ceb484",
+                "reference": "d20294623f53faf2e4019ad60ff5897101ceb484",
                 "shasum": ""
             },
             "require": {
                 "ext-pdo": "*",
                 "ext-sqlite3": "*",
-                "leonickl/plate": "^1.0",
+                "leonickl/plate": "^2.0",
                 "php": "^8.4"
             },
             "require-dev": {
@@ -155,9 +155,9 @@
             "description": "Core functionality for leonickl/pxp",
             "support": {
                 "issues": "https://github.com/leonickl/pxp-core/issues",
-                "source": "https://github.com/leonickl/pxp-core/tree/v4.0.0"
+                "source": "https://github.com/leonickl/pxp-core/tree/v4.1.0"
             },
-            "time": "2026-05-07T14:09:39+00:00"
+            "time": "2026-05-22T14:24:51+00:00"
         },
         {
             "name": "nesbot/carbon",
@@ -558,16 +558,16 @@
         },
         {
             "name": "symfony/translation",
-            "version": "v8.1.0-BETA1",
+            "version": "v8.1.0-BETA3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/translation.git",
-                "reference": "c154db84a317e2f0cd08187986b3af18e387896f"
+                "reference": "97c05f0585532730236587407107e4d6bf703119"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/translation/zipball/c154db84a317e2f0cd08187986b3af18e387896f",
-                "reference": "c154db84a317e2f0cd08187986b3af18e387896f",
+                "url": "https://api.github.com/repos/symfony/translation/zipball/97c05f0585532730236587407107e4d6bf703119",
+                "reference": "97c05f0585532730236587407107e4d6bf703119",
                 "shasum": ""
             },
             "require": {
@@ -627,7 +627,7 @@
             "description": "Provides tools to internationalize your application",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/translation/tree/v8.1.0-BETA1"
+                "source": "https://github.com/symfony/translation/tree/v8.1.0-BETA3"
             },
             "funding": [
                 {
@@ -647,7 +647,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-05-06T11:32:46+00:00"
+            "time": "2026-05-19T16:06:39+00:00"
         },
         {
             "name": "symfony/translation-contracts",
