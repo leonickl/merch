@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Enums\Size;
 use Carbon\Carbon;
 use PXP\Data\Model;
+use PXP\Auth\Models\User;
 
 /**
  * @property int $order_id

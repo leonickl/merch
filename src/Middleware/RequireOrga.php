@@ -8,7 +8,7 @@ use PXP\Exceptions\UnauthorizedException;
 use PXP\Http\Middleware\Middleware;
 use PXP\Http\Response\View;
 
-class RequireAdmin extends Middleware
+class RequireOrga extends Middleware
 {
     public function apply(): true|View
     {
