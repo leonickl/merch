@@ -23,9 +23,7 @@ class UserController extends Controller
     {
         $role = request()->int('role');
 
-        dd($role, Role::tryFrom($role));
-
-        if (Role::tryFrom($role) === null) {
+        if (! Role::valid($role)) {
             Notification::warn('Keine valide Rolle gegeben.');
 
             return Redirect::route('users.index');
