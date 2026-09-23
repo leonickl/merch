@@ -119,16 +119,16 @@
         },
         {
             "name": "leonickl/pxp-auth",
-            "version": "v0.2.2",
+            "version": "v0.2.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/leonickl/pxp-auth.git",
-                "reference": "14c384cc9563dd10e66f7d7c92f5c9bf107929ca"
+                "reference": "f9caac691fef429d46924d334d75723b954cb28e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/leonickl/pxp-auth/zipball/14c384cc9563dd10e66f7d7c92f5c9bf107929ca",
-                "reference": "14c384cc9563dd10e66f7d7c92f5c9bf107929ca",
+                "url": "https://api.github.com/repos/leonickl/pxp-auth/zipball/f9caac691fef429d46924d334d75723b954cb28e",
+                "reference": "f9caac691fef429d46924d334d75723b954cb28e",
                 "shasum": ""
             },
             "require": {
@@ -159,9 +159,9 @@
             "description": "Authentication for PXP",
             "support": {
                 "issues": "https://github.com/leonickl/pxp-auth/issues",
-                "source": "https://github.com/leonickl/pxp-auth/tree/v0.2.2"
+                "source": "https://github.com/leonickl/pxp-auth/tree/v0.2.3"
             },
-            "time": "2026-09-23T12:17:31+00:00"
+            "time": "2026-09-23T16:40:07+00:00"
         },
         {
             "name": "leonickl/pxp-core",
@@ -856,11 +856,11 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "2.2.14",
+            "version": "2.2.15",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/9c672e7a8e791dfc3d30e55f683e73fc0b63a3ac",
-                "reference": "9c672e7a8e791dfc3d30e55f683e73fc0b63a3ac",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/b158556ffd26825cf615a1c1f72fb5157a2301b7",
+                "reference": "b158556ffd26825cf615a1c1f72fb5157a2301b7",
                 "shasum": ""
             },
             "require": {
@@ -916,7 +916,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-09-12T21:39:33+00:00"
+            "time": "2026-09-23T12:23:07+00:00"
         }
     ],
     "aliases": [],
