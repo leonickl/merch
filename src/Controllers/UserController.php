@@ -2,13 +2,13 @@
 
 namespace App\Controllers;
 
-use App\Enums\Role;
-use App\Models\User;
-use App\Notification;
+use PXP\Auth\Auth;
+use PXP\Auth\Models\User;
+use PXP\Auth\Role;
 use PXP\Http\Controllers\Controller;
 use PXP\Http\Response\Redirect;
 use PXP\Http\Response\Response;
-use PXP\Lib\Auth;
+use PXP\Lib\Notification;
 
 class UserController extends Controller
 {
@@ -19,28 +19,26 @@ class UserController extends Controller
         ]);
     }
 
-    public function create(): Response
-    {
-        return view('users.create');
-    }
-
-    public function store(): Response
-    {
-        User::create();
-
-        return Redirect::route('users.index');
-    }
-
     public function setRole(int $id): Response
     {
         $role = request()->int('role');
 
-        if (! in_array($role, Role::values())) {
-            throw new ValidationException('No valid role given');
+        dd($role, Role::tryFrom($role));
+
+        if (Role::tryFrom($role) === null) {
+            Notification::warn('Keine valide Rolle gegeben.');
+
+            return Redirect::route('users.index');
         }
 
-        if ($id === Auth::user()?->id) {
+        if (Auth::user()?->id === $id) {
             Notification::warn('Du kannst dich nicht selbst umstufen.');
+
+            return Redirect::route('users.index');
+        }
+
+        if ($role > Auth::user()?->role) {
+            Notification::warn('Du kannst keine höheren Rollen als deine eigene vergeben.');
 
             return Redirect::route('users.index');
         }

@@ -3,7 +3,7 @@
 <div class="cards">
     {{ each: $users as $user }}
         <div class="card">
-            <p><b>{{ $user->fullName() }}</b></p>
+            <p><b>{{ $user->name() }}</b></p>
 
             <p>
                 {{ $user->username }}
@@ -13,12 +13,12 @@
                 {{ if; }}
             </p>
 
-            {{ if: $user->role === \App\Enums\Role::REGULAR->value }}
-                <a href="{{ route('users.set-role', id: $user->id) }}?__method=post&role={{ \App\Enums\Role::ORGA->value }}" class="btn secondary mt-2">Benutzer:in</a>
-            {{ elif: $user->role === \App\Enums\Role::ORGA->value }}
-                <a href="{{ route('users.set-role', id: $user->id) }}?__method=post&role={{ \App\Enums\Role::ADMIN->value }}" class="btn mt-2">Organisator:in</a>
-            {{ elif: $user->role === \App\Enums\Role::ADMIN->value }}
-                <a href="{{ route('users.set-role', id: $user->id) }}?__method=post&role={{ \App\Enums\Role::REGULAR->value }}" class="btn warn mt-2">Admin</a>
+            {{ if: $user->role === 0 }}
+                <a href="{{ route('users.set-role', id: $user->id) }}?__method=post&role=1" class="btn secondary mt-2">Benutzer:in</a>
+            {{ elif: $user->role === 1 }}
+                <a href="{{ route('users.set-role', id: $user->id) }}?__method=post&role=2" class="btn mt-2">Organisator:in</a>
+            {{ elif: $user->role === 2 }}
+                <a href="{{ route('users.set-role', id: $user->id) }}?__method=post&role=0" class="btn warn mt-2">Admin</a>
             {{ if; }}
         </div>
     {{ each; }}

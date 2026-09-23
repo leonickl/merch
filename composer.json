@@ -5,9 +5,9 @@
     "minimum-stability": "beta",
     "require": {
         "ext-pdo": "*",
-        "leonickl/pxp-core": "^4.0",
+        "leonickl/pxp-core": "^5.6",
+        "leonickl/pxp-auth": "^0.2",
         "ext-sqlite3": "*",
-        "phpmailer/phpmailer": "^7.0",
         "nesbot/carbon": "^3.11"
     },
     "require-dev": {
@@ -19,8 +19,7 @@
             "App\\": "src/"
         },
         "files": [
-            "routes.php",
-            "functions.php"
+            "routes.php"
         ]
     },
     "authors": [

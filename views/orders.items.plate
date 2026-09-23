@@ -26,7 +26,7 @@
 <div class="cards">
     {{ each: $items as $item }}
         <div class="card">
-            <p><b>{{ $item->user()->fullName() }}</b></p>
+            <p><b>{{ $item->user()->name() }}</b></p>
             <p><em>Merch:</em> {{ $item->merch()->title }} {{ $item->size() ? '('.$item->size()->label().')' : '' }}</p>
             <p><em>Bestellt:</em> {{ $item->createdAt() }}</p>
         </div>

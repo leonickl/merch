@@ -7,13 +7,16 @@ require __DIR__.'/vendor/autoload.php';
 $db = DB::init();
 
 $db->create('users', [
-    'username' => 'text not null unique',
+    'email' => 'text not null unique',
     'password_hash' => 'text not null',
     'role' => 'int not null default 0',
     'first_name' => 'string not null',
     'last_name' => 'string not null',
     'verified' => 'int not null default 0',
 ]);
+
+$db->sql('create unique index if not exists '.
+    'unique_users_email on users(email)');
 
 $db->create('verification_link', [
     'token' => 'string not null',
