@@ -21,6 +21,10 @@ return [
         'form',
     ],
 
+    'js' => [
+        'passkey',
+    ],
+
     'mail' => (object) [
         'host' => env('MAIL_HOST'),
         'user' => env('MAIL_USER'),
@@ -54,6 +58,11 @@ return [
                 'ORGA' => 'Organisator:in',
                 'ADMIN' => 'Admin',
             ],
+        ],
+
+        'relying-party' => [
+            'name' => 'Merch',
+            'id' => 'localhost',
         ],
     ],
 ];

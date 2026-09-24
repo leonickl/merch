@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e9e867617856d0013ba0ac4d7d922c3c",
+    "content-hash": "26eed9763f5d2e44ba48bc36ed4163ee",
     "packages": [
         {
             "name": "carbonphp/carbon-doctrine-types",
@@ -81,6 +81,51 @@
             "time": "2026-09-06T14:11:38+00:00"
         },
         {
+            "name": "lbuchs/webauthn",
+            "version": "v2.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/lbuchs/WebAuthn.git",
+                "reference": "20adb4a240c3997bd8cac7dc4dde38ab0bea0ed1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/lbuchs/WebAuthn/zipball/20adb4a240c3997bd8cac7dc4dde38ab0bea0ed1",
+                "reference": "20adb4a240c3997bd8cac7dc4dde38ab0bea0ed1",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.0.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "lbuchs\\WebAuthn\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Lukas Buchs",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A simple PHP WebAuthn (FIDO2) server library",
+            "homepage": "https://github.com/lbuchs/webauthn",
+            "keywords": [
+                "Authentication",
+                "webauthn"
+            ],
+            "support": {
+                "issues": "https://github.com/lbuchs/WebAuthn/issues",
+                "source": "https://github.com/lbuchs/WebAuthn/tree/v2.2.0"
+            },
+            "time": "2024-07-04T07:17:40+00:00"
+        },
+        {
             "name": "leonickl/plate",
             "version": "v2.0.1",
             "source": {
@@ -119,20 +164,21 @@
         },
         {
             "name": "leonickl/pxp-auth",
-            "version": "v0.2.3",
+            "version": "v0.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/leonickl/pxp-auth.git",
-                "reference": "f9caac691fef429d46924d334d75723b954cb28e"
+                "reference": "b515d6881afab09d147df6c782384f3facc46ede"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/leonickl/pxp-auth/zipball/f9caac691fef429d46924d334d75723b954cb28e",
-                "reference": "f9caac691fef429d46924d334d75723b954cb28e",
+                "url": "https://api.github.com/repos/leonickl/pxp-auth/zipball/b515d6881afab09d147df6c782384f3facc46ede",
+                "reference": "b515d6881afab09d147df6c782384f3facc46ede",
                 "shasum": ""
             },
             "require": {
-                "leonickl/pxp-core": "^5.0",
+                "lbuchs/webauthn": "^2.2",
+                "leonickl/pxp-core": "^v5.7",
                 "nesbot/carbon": "^3.11",
                 "phpmailer/phpmailer": "^7.0"
             },
@@ -159,22 +205,22 @@
             "description": "Authentication for PXP",
             "support": {
                 "issues": "https://github.com/leonickl/pxp-auth/issues",
-                "source": "https://github.com/leonickl/pxp-auth/tree/v0.2.3"
+                "source": "https://github.com/leonickl/pxp-auth/tree/v0.3.0"
             },
-            "time": "2026-09-23T16:40:07+00:00"
+            "time": "2026-09-24T09:40:26+00:00"
         },
         {
             "name": "leonickl/pxp-core",
-            "version": "v5.6.2",
+            "version": "v5.7.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/leonickl/pxp-core.git",
-                "reference": "5a353a90f08e0ff165481b54675710c62658cf24"
+                "reference": "dd22ed580f3ea97e21cf7ef7d0413713b77a34c2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/leonickl/pxp-core/zipball/5a353a90f08e0ff165481b54675710c62658cf24",
-                "reference": "5a353a90f08e0ff165481b54675710c62658cf24",
+                "url": "https://api.github.com/repos/leonickl/pxp-core/zipball/dd22ed580f3ea97e21cf7ef7d0413713b77a34c2",
+                "reference": "dd22ed580f3ea97e21cf7ef7d0413713b77a34c2",
                 "shasum": ""
             },
             "require": {
@@ -206,9 +252,9 @@
             "description": "Core functionality for leonickl/pxp",
             "support": {
                 "issues": "https://github.com/leonickl/pxp-core/issues",
-                "source": "https://github.com/leonickl/pxp-core/tree/v5.6.2"
+                "source": "https://github.com/leonickl/pxp-core/tree/v5.7.1"
             },
-            "time": "2026-09-22T00:10:29+00:00"
+            "time": "2026-09-24T09:36:49+00:00"
         },
         {
             "name": "nesbot/carbon",
@@ -920,9 +966,9 @@
         }
     ],
     "aliases": [],
-    "minimum-stability": "beta",
+    "minimum-stability": "dev",
     "stability-flags": {},
-    "prefer-stable": false,
+    "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
         "ext-pdo": "*",
