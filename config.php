@@ -62,7 +62,7 @@ return [
 
         'relying-party' => [
             'name' => 'Merch',
-            'id' => 'localhost',
+            'id' => env('RELYING_PARTY', 'localhost'),
         ],
     ],
 ];
