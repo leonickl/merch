@@ -60,12 +60,14 @@ Route::group(
 
     Route::get('/auth/register')->do(RegisterController::class, 'form')->name('register'),
     Route::post('/auth/register')->do(RegisterController::class, 'register'),
+
     Route::get('/auth/register-passkey')->do(RegisterController::class, 'passkeyForm')->name('register-passkey-form'),
     Route::post('/auth/register-passkey-args')->do(RegisterController::class, 'registerPasskeyArgs')->name('register-passkey-args'),
     Route::post('/auth/register-passkey')->do(RegisterController::class, 'registerPasskey')->name('register-passkey'),
 
     Route::get('/auth/login')->do(LoginController::class, 'form')->name('login'),
     Route::post('/auth/login')->do(LoginController::class, 'login'),
+
     Route::post('/auth/validate-passkey-args')->do(LoginController::class, 'validatePasskeyArgs')->name('validate-passkey-args'),
     Route::post('/auth/validate-passkey')->do(LoginController::class, 'validatePasskey')->name('validate-passkey'),
 );
