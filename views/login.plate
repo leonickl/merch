@@ -1,0 +1,68 @@
+<div id="error" class="notification warn hidden">
+    <p class="m-0 p-0"></p>
+</div>
+
+{{ plug: 'head', title: "Anmelden bei ".config('title') }}
+
+<form action="{{ route('login') }}" method="post">
+    <label for="email" class="required">E-Mail-Adresse</label>
+    <input type="email" id="email" name="identifier" required>
+
+    <label for="password" class="required">Passwort</label>
+    <input type="password" id="password" name="secret" required>
+
+    <div class="row">
+        <button type="submit" class="btn mt-2">Login</button>
+
+        {{ if: $passkeys }}
+            <button type="button" class="btn secondary mt-2" id="login-passkey">Login with Passkey</button>
+        {{ if; }}
+    </div>
+</form>
+
+{{ if: $passkeys }}
+    <script>
+        const error = document.querySelector('#error')
+
+        document.querySelector('#login-passkey').addEventListener('click', e => {
+            validateArgs()
+        })
+
+        function validateArgs() {
+            fetcher("{{ route('validate-passkey-args') }}").then(async (res) => {
+                if (res.error) {
+                    error.querySelector('p').textContent = res.error
+                    error.classList.remove('hidden')
+                    return
+                }
+
+                base64ToArrayBuffer(res)
+                validate(await navigator.credentials.get(res))
+            })
+        }
+
+        function validate(cred) {
+            fetcher("{{ route('validate-passkey') }}", {
+                id : cred.rawId ? arrayBufferToBase64(cred.rawId) : null,
+                client : cred.response.clientDataJSON ? arrayBufferToBase64(cred.response.clientDataJSON) : null,
+                auth : cred.response.authenticatorData ? arrayBufferToBase64(cred.response.authenticatorData) : null,
+                sig : cred.response.signature ? arrayBufferToBase64(cred.response.signature) : null,
+                user : cred.response.userHandle ? arrayBufferToBase64(cred.response.userHandle) : null
+            }).then(res => {
+                if (res.status === 'ok') {
+                    window.location.href = "{{ route('main') }}"
+                    return
+                }
+
+                error.querySelector('p').textContent = res.error
+                error.classList.remove('hidden')
+            })
+        }
+    </script>
+{{ if; }}
+
+<style>
+    .hidden {
+        display: none;
+    }
+</style>
