@@ -12,6 +12,19 @@
     {{ if: $order->info }}
         <p class="mt">{{ $order->info }}</p>
     {{ if; }}
+
+    {{ if: $order->paylink }}
+        <p class="row mt" style="justify-content: center">
+            {{ if: auth() }}
+                <a href="{{ $order->paylink() }}" class="btn">
+                    {{ plug: 'icons.paypal' }}
+                    {{ $order->paylink(protocol: false) }}
+                </a>
+            {{ else: }}
+                <em>Bitte melde dich an, um die Zahlungsdaten einsehen zu können.</em>
+            {{ if; }}
+        </p>
+    {{ if; }}
 {{ else: }}
     <p>Es sieht so aus, als könnte man derzeit nichts bestellen.</p>
 {{ if; }}

@@ -28,11 +28,13 @@ class OrderController extends Controller
         $data = request()->validate(fn ($req) => [
             $req->title->string()->min(3)->max(40),
             $req->info->string()->nullable()->max(6000),
+            $req->paylink->string()->nullable()->max(40),
         ]);
 
         Order::create(
             title: $data->title,
             info: $data->info,
+            paylink: $data->paylink,
             status: OrderStatus::PLANNED->value,
         );
 

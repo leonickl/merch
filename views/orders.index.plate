@@ -6,6 +6,10 @@
             <p><b>{{ $order->title }}</b></p>
             <p><em>OrderStatus:</em> {{ $order->status()->label() }}</p>
 
+            {{ if: $order->paylink }}
+                <p><a href="{{ $order->paylink() }}">{{ $order->paylink(protocol: false) }}</a></p>
+            {{ if; }}
+
             {{ if: $order->isOpen() }}
                 <a href="{{ route('orders.set-status', id: $order->id) }}?__method=post&status={{ \App\Enums\OrderStatus::CLOSED->value }}" class="btn success mt-2">Geöffnet</a>
             {{ else: }}

@@ -40,6 +40,7 @@ $db->create('orders', [
 
 $db->addColumns('orders', [
     'info' => 'text nullable',
+    'paylink' => 'text nullable',
 ]);
 
 $db->create('items', [

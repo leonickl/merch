@@ -9,6 +9,7 @@ use PXP\Ds\Vector;
 /**
  * @property string $title
  * @property ?string $info
+ * @property ?string $paylink
  * @property int $status
  */
 class Order extends Model
@@ -55,5 +56,21 @@ class Order extends Model
         }
 
         return $groups;
+    }
+
+    public function paylink(bool $protocol = true): ?string
+    {
+        $paylink = $this->paylink;
+
+        $paylink = trim($paylink);
+        $paylink = trim($paylink, '/');
+        $paylink = array_last(explode('://', $paylink));
+        $paylink = trim($paylink);
+
+        if ($paylink === '') {
+            return null;
+        }
+
+        return $protocol ? "https://$paylink" : $paylink;
     }
 }
