@@ -1,0 +1,24 @@
+{{ plug: 'head', title: "Meine Bestellungen" }}
+
+<div class="cards">
+    {{ each: $items as $item }}
+        <div class="card">
+            <p><b>{{ $item->merch()->title }}</b></p>
+
+            {{ if: $item->size }}
+                <p>Größe: {{ $item->size()?->label() ?: '---' }}</p>
+            {{ if; }}
+
+            <p><em>{{ $item->createdAt() }}</em></p>
+
+            {{ if: $item->order()->paylink }}
+                <p class="mt">
+                    <a href="{{ $item->order()->paylink() }}" class="btn">
+                        {{ plug: 'icons.paypal' }}
+                        {{ $item->order()->paylink(protocol: false) }}
+                    </a>
+                </p>
+            {{ if; }}
+        </div>
+    {{ each; }}
+</div>

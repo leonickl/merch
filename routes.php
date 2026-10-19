@@ -14,6 +14,7 @@ use PXP\Auth\Middleware\RequireAdmin;
 use PXP\Auth\Middleware\VerifiedEmail;
 use PXP\Http\Controllers\AssetController;
 use PXP\Router\Route;
+use App\Controllers\MyController;
 
 Route::get('/')->do(MainController::class, 'index')->name('main');
 
@@ -50,6 +51,8 @@ Route::group(
 Route::group(
     Route::get('/orders/{id}/items/create')->do(ItemController::class, 'create')->name('items.create'),
     Route::post('/orders/{id}/items')->do(ItemController::class, 'store')->name('items.store'),
+
+    Route::get('/my')->do(MyController::class, 'index')->name('my'),
 )
     ->middleware(InteractiveAuth::class)
     ->middleware(VerifiedEmail::class);

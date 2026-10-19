@@ -25,6 +25,8 @@ class Nav
             o(at: ['/merchs'], to: route('merchs.create'), how: 'Neu', guard: fn () => $user?->role()->atLeast(Role::ORGA())),
             o(at: ['/orders'], to: route('orders.create'), how: 'Neu', guard: fn () => $user?->role()->atLeast(Role::ORGA())),
 
+            o(at: ['*'], to: route('my'), how: 'Meins', guard: fn () => $user),
+
             o(at: ['/auth/login'], to: route('register'), how: 'Registrieren'),
             o(at: ['/'], to: route('login'), how: 'Login', guard: fn () => $user === null, classes: 'secondary'),
             o(at: ['*'], to: route('logout'), how: 'Logout', classes: 'warn', guard: fn () => $user),

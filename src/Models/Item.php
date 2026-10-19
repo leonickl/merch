@@ -6,6 +6,8 @@ use App\Enums\Size;
 use Carbon\Carbon;
 use PXP\Data\Model;
 use PXP\Auth\Models\User;
+use PXP\Auth\Auth;
+use PXP\Ds\Vector;
 
 /**
  * @property int $order_id
@@ -40,5 +42,10 @@ class Item extends Model
     public function createdAt(): string
     {
         return new Carbon($this->created_at)->format('d.m.Y H:i');
+    }
+
+    public static function mine(): Vector
+    {
+        return Item::findAllBy('user_id', Auth::user()?->id);
     }
 }
