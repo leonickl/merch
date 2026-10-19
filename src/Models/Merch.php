@@ -9,6 +9,7 @@ use PXP\Ds\Vector;
 
 /**
  * @property string $title
+ * @property ?string $info
  * @property int $sizes
  * @property int $status
  */

@@ -17,9 +17,11 @@ class ItemController extends Controller
     public function create(int $id): Response
     {
         $available_sizes = [];
+        $infos = [];
 
         foreach (Merch::orderable() as $merch) {
             $available_sizes[$merch->id] = $merch->sizes;
+            $infos[$merch->id] = $merch->info;
         }
 
         return view('items.create', [
@@ -27,6 +29,7 @@ class ItemController extends Controller
             'merchs' => Merch::orderable(),
             'sizes' => Size::all(),
             'available_sizes' => $available_sizes,
+            'infos' => $infos,
         ]);
     }
 

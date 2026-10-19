@@ -25,6 +25,9 @@
         {{ each; }}
     </select>
 
+    <label id="info-label" style="display: none">Info</label>
+    <p id="info" style="display: none"></p>
+
     <button type="submit" class="btn mt-2">Bestellen</button>
 </form>
 
@@ -32,14 +35,18 @@
 
     const merchSelect = document.querySelector('#merch');
     const sizeOptions = document.querySelectorAll('#size > option');
+    const infoLabel = document.querySelector('#info-label');
+    const infoBox = document.querySelector('#info');
 
     const availableSizes = {{ % json_encode($available_sizes) }};
+    const infos = {{ % json_encode($infos) }};
 
     merchSelect.addEventListener('change', e => {
         const merch = e.target.value;
         const available = availableSizes[merch];
+        const info = infos[merch];
 
-        console.log({ merch, available });
+        console.log({ merch, available, info });
 
         sizeOptions.forEach((elem, i) => {
             elem.disabled = i === 0
@@ -48,6 +55,15 @@
 
             console.log(elem.textContent, elem.value & available)
         });
+
+        if (info) {
+            infoBox.textContent = info;
+            infoLabel.style.display = 'block';
+            infoBox.style.display = 'block';
+        } else {
+            infoLabel.style.display = 'none';
+            infoBox.style.display = 'none';
+        }
     });
 
 </script>

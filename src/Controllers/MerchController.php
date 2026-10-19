@@ -29,11 +29,13 @@ class MerchController extends Controller
     {
         $data = request()->validate(fn ($req) => [
             $req->title->string()->min(3)->max(40),
+            $req->info->string()->nullable()->max(500),
             $req->sizes->array()->nullable(),
         ]);
 
         Merch::create(
             title: $data->title,
+            info: $data->info,
             sizes: Size::combineValues($data->sizes ?? []),
             status: MerchStatus::ORDERABLE->value,
         );

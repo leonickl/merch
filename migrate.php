@@ -29,6 +29,10 @@ $db->create('merchs', [
     'status' => 'int not null',
 ]);
 
+$db->addColumns('merchs', [
+    'info' => 'text nullable',
+]);
+
 $db->create('orders', [
     'title' => 'string not null',
     'status' => 'int not null',
