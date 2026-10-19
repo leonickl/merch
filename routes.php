@@ -33,6 +33,7 @@ Route::group(
     Route::post('/orders')->do(OrderController::class, 'store')->name('orders.store'),
     Route::post('/orders/{id}/status')->do(OrderController::class, 'setStatus')->name('orders.set-status'),
     Route::get('/orders/{id}/items')->do(OrderController::class, 'items')->name('orders.items'),
+    Route::get('/orders/{id}/info')->do(OrderController::class, 'info')->name('orders.info'),
 )
     ->middleware(InteractiveAuth::class)
     ->middleware(VerifiedEmail::class)

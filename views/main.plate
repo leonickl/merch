@@ -1,13 +1,17 @@
 {{ plug: 'head', title: "Merch-Bestellungen" }}
 
-{{ if: count($orders) === 0 }}
-    <p>Es sieht so aus, als könnte man derzeit nichts bestellen.</p>
-{{ else: }}
-    <p>Folgende Bestellungen sind gerade geöffnet:</p>
+{{ if: $order }}
+    <p class="mt"><b>Folgende Bestellung ist gerade geöffnet:</b></p>
 
-    {{ each: $orders as $order }}
+    <p class="row" style="justify-content: center">
         <a class="btn mt" href="{{ route('items.create', id: $order->id) }}">
             {{ $order->title }}
         </a>
-    {{ each; }}
+    </p>
+
+    {{ if: $order->info }}
+        <p class="mt">{{ $order->info }}</p>
+    {{ if; }}
+{{ else: }}
+    <p>Es sieht so aus, als könnte man derzeit nichts bestellen.</p>
 {{ if; }}

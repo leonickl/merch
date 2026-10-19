@@ -8,6 +8,7 @@ use PXP\Ds\Vector;
 
 /**
  * @property string $title
+ * @property ?string $info
  * @property int $status
  */
 class Order extends Model

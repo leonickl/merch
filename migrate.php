@@ -38,6 +38,10 @@ $db->create('orders', [
     'status' => 'int not null',
 ]);
 
+$db->addColumns('orders', [
+    'info' => 'text nullable',
+]);
+
 $db->create('items', [
     'order_id' => 'int references orders(id)',
     'user_id' => 'int references users(id)',

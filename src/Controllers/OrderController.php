@@ -27,9 +27,14 @@ class OrderController extends Controller
     {
         $data = request()->validate(fn ($req) => [
             $req->title->string()->min(3)->max(40),
+            $req->info->string()->nullable()->max(6000),
         ]);
 
-        Order::create(title: $data->title, status: OrderStatus::PLANNED->value);
+        Order::create(
+            title: $data->title,
+            info: $data->info,
+            status: OrderStatus::PLANNED->value,
+        );
 
         return Redirect::route('orders.index');
     }
@@ -40,6 +45,11 @@ class OrderController extends Controller
 
         if (! in_array($status, OrderStatus::values())) {
             throw new ValidationException('No valid status given');
+        }
+
+        if ($status === OrderStatus::OPEN->value) {
+            Order::findAllBy('status', OrderStatus::OPEN->value)
+                ->each(fn (Order $order) => $order->fill(status: OrderStatus::CLOSED->value)->save());
         }
 
         Order::find($id)->fill(status: $status)->save();
@@ -54,6 +64,15 @@ class OrderController extends Controller
         return view('orders.items', [
             'order' => $order,
             'items' => $order->items(),
+        ]);
+    }
+
+    public function info(int $id): Response
+    {
+        $order = Order::find($id);
+
+        return view('orders.info', [
+            'order' => $order,
         ]);
     }
 }

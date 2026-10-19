@@ -1,0 +1,3 @@
+{{ plug: 'head', title: "Bestellung '$order->title'" }}
+
+<p>{{ $order->info ?: '---' }}</p>
