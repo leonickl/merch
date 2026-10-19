@@ -1,6 +1,10 @@
 {{ plug: 'head', title: "Meine Bestellungen" }}
 
 <div class="cards">
+    {{ if: count($items) === 0 }}
+        <p>Du hast noch nichts bestellt.</p>
+    {{ if; }}
+
     {{ each: $items as $item }}
         <div class="card">
             <p><b>{{ $item->merch()->title }}</b></p>
