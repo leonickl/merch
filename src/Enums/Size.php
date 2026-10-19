@@ -15,6 +15,10 @@ enum Size: int
     case M = 4;
     case L = 8;
     case XL = 16;
+    case XXL = 32;
+    case XXXL = 64;
+    case XXXXL = 128;
+    case XXXXXL = 256;
 
     public function label(): string
     {
@@ -24,6 +28,10 @@ enum Size: int
             self::M => 'M',
             self::L => 'L',
             self::XL => 'XL',
+            self::XXL => 'XXL',
+            self::XXXL => '3XL',
+            self::XXXXL => '4XL',
+            self::XXXXXL => '5XL',
         };
     }
 
