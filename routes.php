@@ -51,6 +51,7 @@ Route::group(
 Route::group(
     Route::get('/orders/{id}/items/create')->do(ItemController::class, 'create')->name('items.create'),
     Route::post('/orders/{id}/items')->do(ItemController::class, 'store')->name('items.store'),
+    Route::post('/items/{id}/cancel')->do(ItemController::class, 'cancel')->name('items.cancel'),
 
     Route::get('/my')->do(MyController::class, 'index')->name('my'),
 )

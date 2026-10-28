@@ -48,4 +48,9 @@ class Item extends Model
     {
         return Item::findAllBy('user_id', Auth::user()?->id);
     }
+
+    public function canCancel(): bool
+    {
+        return $this->order()->isOpen();
+    }
 }

@@ -82,4 +82,21 @@ class ItemController extends Controller
 
         return Redirect::path(route('items.create', id: $order->id));
     }
+
+    public function cancel(int $id)
+    {
+        $item = Item::find($id);
+
+        if (! $item->canCancel()) {
+            Notification::warn('Diese Bestellung ist schon geschlossen. Du kannst nichts mehr stornieren.');
+
+            return Redirect::route('my');
+        }
+
+        $item->delete();
+
+        Notification::success("Du hast deine Bestellung von '".$item->merch()->title."' storniert.");
+
+        return Redirect::route('my');
+    }
 }

@@ -23,6 +23,10 @@
                     </a>
                 </p>
             {{ if; }}
+
+            {{ if: $item->canCancel() }}
+                <a href="{{ route('items.cancel', id: $item->id) }}?__method=post" class="btn warn mt-2">Stornieren</a>
+            {{ if; }}
         </div>
     {{ each; }}
 </div>
